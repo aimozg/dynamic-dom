@@ -57,6 +57,7 @@ Add `dist/index.js`.
 <main>
     <div>
         <b>#1.</b>
+        <span>&radic;</span>
         Make a TODO.
     </div>
     <div>
@@ -67,7 +68,7 @@ Add `dist/index.js`.
     <div>
         <b>#3.</b>
         PROFIT!
-        <button type="button" disabled>Complete</button>
+        <button type="button" disabled>Impossible</button>
     </div>
 </main>
 ```
