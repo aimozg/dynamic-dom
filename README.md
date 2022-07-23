@@ -140,7 +140,29 @@ Add an event listener for `EVENT`, invoking `jsexpr`.
 Example:
 
 ```html
-<input type="text" dd-oninput="(event)=>event.target.value=event.target.value.toUpperCase()"/>
+<input type="text" dd-oninput="event.target.value=event.target.value.toUpperCase()"/>
+```
+
+### `dd-for="jsexpr"`, `dd-item="varItem"`, `dd-index="varIndex"`
+
+For every item in array/object returned by `jsexpr`, repeat the node and evaluate with local variables `varIndex` (key or array index) and `varItem` (value or array item).
+
+Example
+```html
+<div dd-for="this.items" dd-item="x" dd-index="i">
+    <span dd-text="i"></span>
+    <span dd-if="x.known" dd-text="x.text"></span>
+    <span dd-else>???</span>
+</div>
+=> with this={items:[{known:false,text:'Foo'},{known:true,text:'Bar'}]}
+<div>
+    <span>0</span>
+    <span>???</span>
+</div>
+<div>
+    <span>1</span>
+    <span>Bar</span>
+</div>
 ```
 
 ## Extending
