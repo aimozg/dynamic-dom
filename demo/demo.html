@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<main>
+    <div id="main">
+        <div dd-for="this.items" dd-index="i" dd-item="x">
+            <b dd-text="'#'+(i+1)+'.'"></b>
+            <span dd-if="x.done">&radic;</span>
+            <span dd-replace="x.name"></span>
+            <button type="button" dd-if="!x.done" dd-onclick="complete(x)" dd-attrs="{disabled:x.impossible}" dd-text="x.impossible?'Impossible':'Complete'"></button>
+        </div>
+        <button onclick="addItem()">Add item</button>
+    </div>
+</main>
+<script type="text/javascript" src="../dist/index.js"></script>
+<script>
+	let context = {
+		items: [
+			{name: "Make a TODO.", done: true},
+			{name: "???", done: false},
+			{name: "PROFIT!", done: false, impossible: true}
+		]
+	};
+	DD.compileAndEval(document.body, context);
+
+	function complete(item) {
+		item.done = true;
+		DD.evaluate(document.body, context);
+	}
+</script>
+</body>
+</html>
