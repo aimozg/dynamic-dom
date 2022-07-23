@@ -27,7 +27,11 @@ Add `dist/index.js`.
             <b dd-text="'#'+(i+1)+'.'"></b>
             <span dd-if="x.done">&radic;</span>
             <span dd-replace="x.name"></span>
-            <button type="button" dd-if="!x.done" dd-onclick="complete(x)" dd-attrs="{disabled:x.impossible}" dd-text="x.impossible?'Impossible':'Complete'"></button>
+            <button type="button" 
+                    dd-if="!x.done" 
+                    dd-onclick="complete(x)" 
+                    dd-attrs="{disabled:x.impossible}" 
+                    dd-text="x.impossible?'Impossible':'Complete'"></button>
         </div>
         <button onclick="addItem()">Add item</button>
     </div>
