@@ -4,7 +4,7 @@
 var DD;
 (function (DD) {
     DD.Options = {
-        debug: (...msg) => console.log("DD", ...msg),
+        // debug: (...msg: any) => console.log("DD", ...msg),
         compile: toFunction,
         error: (error, node, source) => {
             var _a;

@@ -53,14 +53,14 @@ interface Node {
 }
 
 interface DDOptions {
-	debug: (...msg: any) => void;
+	debug?: (...msg: any) => void;
 	compile: (source:string, varnames:string[]) => Function;
 	error: (error:any, node:Node, source:string) => void
 }
 
 namespace DD {
 	export let Options: DDOptions = {
-		debug: (...msg: any) => console.log("DD", ...msg),
+		// debug: (...msg: any) => console.log("DD", ...msg),
 		compile: toFunction,
 		error: (error,node,source)=> {
 			console.error("Error in expression ",source," of ",node);
